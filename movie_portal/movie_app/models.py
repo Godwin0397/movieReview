@@ -16,6 +16,10 @@ class CineProfessionls(models.Model):
 
     def __str__(self):
         return self.name
+    
+    @property
+    def name_length(self):
+        return len(self.name)
 
 
 class Movie(models.Model):
@@ -30,6 +34,8 @@ class Movie(models.Model):
     producer = models.ForeignKey(CineProfessionls, related_name="movie_producer", on_delete=models.CASCADE)
     director = models.ForeignKey(CineProfessionls, related_name="movie_director", on_delete=models.CASCADE)
 
+    def __str__(self):
+        return self.title
 
 class MovieReview(models.Model):
 
@@ -39,6 +45,9 @@ class MovieReview(models.Model):
     
     movie = models.ForeignKey(Movie, related_name="movie_review", on_delete=models.CASCADE)
     review = models.TextField()
+
+    def __str__(self):
+        return self.review
 
 
 
