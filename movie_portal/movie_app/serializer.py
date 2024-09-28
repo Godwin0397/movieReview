@@ -1,7 +1,7 @@
 from rest_framework import serializers
 from movie_app_app.models import CineProfessionls
 
-class EmployeesSerializer(serializers.Serializer):
+class CineProfessionalSerializer(serializers.Serializer):
     id = serializers.IntegerField(read_only=True)
     name = serializers.CharField(max_length=200)
     profile = serializers.CharField()
@@ -20,7 +20,7 @@ class EmployeesSerializer(serializers.Serializer):
         return instance
 
 
-class EmployeesModelSerializer(serializers.ModelSerializer):
+class CineProfessionalModelSerializer(serializers.ModelSerializer):
     class Meta:
         model = CineProfessionls
         fields = ['id', 'name', 'profile', 'date_of_birth', 'name_length']
